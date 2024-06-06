@@ -1,0 +1,15 @@
+User log out
+---
+tags:
+  - Authentication
+
+parameters:
+  - in: header
+    name: Authentication
+    required: true 
+
+responses:
+  200:
+    description: successfully logout.
+  404:
+    description:  authentication error.

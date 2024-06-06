@@ -1,0 +1,15 @@
+Delete boookmarks 
+---
+tags:
+  - Bookmarks
+
+parameters:
+  - in: header
+    name: Authentication
+    required: true 
+
+responses:
+  200:
+    description: when a bookmark is deleted successfuly.
+  404:
+    description: fail to delete item due to authentication error.

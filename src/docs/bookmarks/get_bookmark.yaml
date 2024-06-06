@@ -1,0 +1,15 @@
+GET Bookmarks per id  
+---
+tags:
+  - Bookmarks
+
+parameters:
+  - in: header
+    name: Authentication
+    required: true 
+
+responses:
+  200:
+    description: Get Bookmarks per ID successfully.
+  404:
+    description: fail to get bookmarks per ID  due to authentication error.

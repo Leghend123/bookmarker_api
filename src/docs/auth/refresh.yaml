@@ -1,0 +1,15 @@
+Refresh authentication token
+---
+tags:
+  - Authentication
+
+parameters:
+  - in: header
+    name: Authentication
+    required: true 
+
+responses:
+  200:
+    description: successfully Refresh token.
+  404:
+    description:  authentication error.

@@ -1,0 +1,32 @@
+User Registration 
+---
+tags:
+ - Authentication
+
+parameters:
+ - name: body
+   description: The body should include uers registration credentails
+   in: body
+   required: true
+   schema:
+     type: object
+     required:
+        - "email"
+        - "password"
+        - "username"
+     properties:
+       email:
+         type: "email"
+         example: "nelson121@gmail.com"
+       username:
+          type: "username"
+          example: "nelsonxe"
+       password:
+        type: "string"
+        formart: password
+        example: "*******"
+response:
+201:
+   description: when a user successfuly register
+400: 
+   description: fail to register due to bad request

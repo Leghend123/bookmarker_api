@@ -1,0 +1,15 @@
+Redirect to Real URL
+---
+tags:
+  - Bookmarks
+
+parameters:
+  - in: path
+    name: short_url
+    required: true 
+
+responses:
+  302:
+    description: Redirect permanently.
+  404:
+     description: Entity not found.

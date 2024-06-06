@@ -1,0 +1,15 @@
+EDIT boookmarks 
+---
+tags:
+  - Bookmarks
+
+parameters:
+  - in: header
+    name: Authentication
+    required: true 
+
+responses:
+  200:
+    description: When bookmark is edit successfully.
+  404:
+    description: fail to edit bookmark due to authentication error.

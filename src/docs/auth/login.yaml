@@ -1,0 +1,30 @@
+User log in 
+---
+tags:
+ - Authentication
+
+parameters:
+ - name: body
+   description: The body should include uers log in credentails
+   in: body
+   required: true
+   schema:
+     type: object
+     required:
+        - "email"
+        - "password"
+     properties:
+       email:
+         type: "email"
+         example: "user@gmail.com"
+       password:
+        type: "string"
+        formart: password
+        example: "*******"
+response:
+201:
+   description: when a user successfuly log in
+400: 
+   description: fail too log in due to bad request
+401: 
+   description: user supplies incorrect credentails

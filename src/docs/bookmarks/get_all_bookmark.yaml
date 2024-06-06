@@ -1,0 +1,15 @@
+Bookmarks 
+---
+tags:
+  - Bookmarks
+
+parameters:
+  - in: header
+    name: Authentication
+    required: true 
+
+responses:
+  200:
+    description: Get all Bookmarks.
+  404:
+    description: fail to get all bookmarks due to authentication error.

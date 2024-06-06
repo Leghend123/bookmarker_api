@@ -1,0 +1,15 @@
+GET stats about boookmarks 
+---
+tags:
+  - Bookmarks
+
+parameters:
+  - in: header
+    name: Authentication
+    required: true 
+
+responses:
+  200:
+    description: Bookmarks Stats.
+  404:
+    description: fail to get item due to authentication error.

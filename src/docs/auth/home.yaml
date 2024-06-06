@@ -1,0 +1,15 @@
+Diaplay data after log in
+---
+tags:
+  - Authentication
+
+parameters:
+  - in: header
+    name: Authentication
+    required: true 
+
+responses:
+  200:
+    description: display data when user sucessfully log i.
+  404:
+    description: authentication error.

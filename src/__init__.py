@@ -8,10 +8,13 @@ from src.constant.Http_status_codes import HTTP_404_NOT_FOUND, HTTP_500_INTERNAL
 from flasgger import Swagger, swag_from
 from src.config.swagger import template, swagger_config
 from dotenv import load_dotenv
+import logging
+from logging.handlers import RotatingFileHandler
 
 
 def create_app(test_config=None):
     load_dotenv()
+
     app = Flask(__name__, instance_relative_config=True)
 
     if test_config is None:
@@ -30,6 +33,26 @@ def create_app(test_config=None):
         )
     else:
         app.config.from_mapping(test_config)
+
+    if not app.debug:
+        # Logging to a file
+        file_handler = RotatingFileHandler(
+            'app.log', maxBytes=10240, backupCount=10)
+        file_handler.setLevel(logging.INFO)
+        formatter = logging.Formatter(
+            ' %(levelname)s: %(name)s: %(message)s')
+        file_handler.setFormatter(formatter)
+        app.logger.addHandler(file_handler)
+
+    # Always log to console
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_handler.setFormatter(formatter)
+    app.logger.addHandler(console_handler)
+
+    app.logger.setLevel(logging.INFO)
+    app.logger.info('Application startup')
+
     JWTManager(app)
     db.app = app
     db.init_app(app)

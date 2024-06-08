@@ -1,0 +1,1070 @@
+{
+	"info": {
+		"_postman_id": "012ad4aa-3765-46dd-bc38-a7fa2ccc4ed8",
+		"name": "Bookmarks API",
+		"description": "API for bookmarks\n\nContact Support:\n Email: nelsonagbagah1002@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34735317"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "User log in \r",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/api/v1/auth/login",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"login"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "logout",
+					"item": [
+						{
+							"name": "User log out\r",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/auth/logout",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "successfully logout.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "/api/v1/auth/logout",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"logout"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "authentication error.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/auth/logout",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"logout"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "me",
+					"item": [
+						{
+							"name": "Diaplay data after log in\r",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/auth/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "display data when user sucessfully log i.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "/api/v1/auth/me",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"me"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "authentication error.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/auth/me",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"me"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "refresh",
+					"item": [
+						{
+							"name": "Refresh authentication token\r",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/auth/refresh",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "successfully Refresh token.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "/api/v1/auth/refresh",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"refresh"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "authentication error.",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/auth/refresh",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"auth",
+												"refresh"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "register",
+					"item": [
+						{
+							"name": "User Registration \r",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"username\": \"<username>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/auth/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Default response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"email\": \"<email>\",\n  \"password\": \"<string>\",\n  \"username\": \"<username>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "/api/v1/auth/register",
+											"path": [
+												"api",
+												"v1",
+												"auth",
+												"register"
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "bookmarks",
+			"item": [
+				{
+					"name": "stats",
+					"item": [
+						{
+							"name": "GET stats about boookmarks \r",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bookmarks/stats",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bookmarks",
+										"stats"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Bookmarks Stats.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "/api/v1/bookmarks/stats",
+											"path": [
+												"api",
+												"v1",
+												"bookmarks",
+												"stats"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "fail to get item due to authentication error.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/bookmarks/stats",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"bookmarks",
+												"stats"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Delete boookmarks \r",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bookmarks/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bookmarks",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "when a bookmark is deleted successfuly.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "/api/v1/bookmarks/:id",
+											"path": [
+												"api",
+												"v1",
+												"bookmarks",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "fail to delete item due to authentication error.",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/bookmarks/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"bookmarks",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "GET Bookmarks per id  \r",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bookmarks/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bookmarks",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get Bookmarks oer ID SUCCESSFULY.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "/api/v1/bookmarks/:id",
+											"path": [
+												"api",
+												"v1",
+												"bookmarks",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "fail to get bookmarks per ID  due to authentication error.",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/bookmarks/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"bookmarks",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "EDIT boookmarks \r",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bookmarks/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bookmarks",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "When bookmark is edit successfully.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "/api/v1/bookmarks/:id",
+											"path": [
+												"api",
+												"v1",
+												"bookmarks",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "fail to edit bookmark due to authentication error.",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Authentication",
+												"value": "<string>",
+												"description": "(Required) "
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/bookmarks/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"bookmarks",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Bookmarks \r",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authentication",
+								"value": "<string>",
+								"description": "(Required) "
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/bookmarks/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bookmarks",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all Bookmarks.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "/api/v1/bookmarks/",
+									"path": [
+										"api",
+										"v1",
+										"bookmarks",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "fail to get all bookmarks due to authentication error.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bookmarks/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bookmarks",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Bookmarks \r",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authentication",
+								"value": "<string>",
+								"description": "(Required) "
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/bookmarks/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"bookmarks",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all Bookmarks.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "/api/v1/bookmarks/",
+									"path": [
+										"api",
+										"v1",
+										"bookmarks",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "fail to get all bookmarks due to authentication error.",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authentication",
+										"value": "<string>",
+										"description": "(Required) "
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/bookmarks/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"bookmarks",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "{short_url}",
+			"item": [
+				{
+					"name": "Redirect to Real URL\r",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/:short_url",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								":short_url"
+							],
+							"variable": [
+								{
+									"key": "short_url",
+									"value": "<string>",
+									"description": "(Required) "
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Redirect permanently.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "/api/v1/:short_url",
+									"path": [
+										"api",
+										"v1",
+										":short_url"
+									],
+									"variable": [
+										{
+											"key": "short_url"
+										}
+									]
+								}
+							},
+							"status": "Found",
+							"code": 302,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Entity not found.",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/:short_url",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										":short_url"
+									],
+									"variable": [
+										{
+											"key": "short_url"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/api/v1"
+		}
+	]
+}

@@ -21,7 +21,7 @@ def create_app(test_config=None):
         app.config.from_mapping(SECRET_KEY=os.environ.get("SECRECT_KEY"),
                                 SQLALCHEMY_DATABASE_URI=os.environ.get(
                                     "SQLALCHEMY_DB_URI"),
-                                JWT_SECRECT_KEY=os.environ.get("SECRECT_KEY"),
+                                JWT_SECRECT_KEY=os.environ.get("JWT_SECRECT_KEY"),
                                 JWT_COOKIE_SECURE=False,
                                 JWT_TOKEN_LOCATION=['headers', 'cookies'],
 

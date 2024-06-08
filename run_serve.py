@@ -1,6 +1,8 @@
 from waitress import serve
 from src import create_app
+import uuid
 
+print(uuid.uuid4().hex)
 
 application = create_app()
 
